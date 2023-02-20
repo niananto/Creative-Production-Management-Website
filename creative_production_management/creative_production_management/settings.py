@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,27 +82,22 @@ WSGI_APPLICATION = 'creative_production_management.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'OPTIONS': {
-    #         'NAME': 'bvieeszx',
-    #         'USER': 'bvieeszx',
-    #         'PASSWORD': '87sV977DrVkXDGLWhJP3ego37WeSZCHE',
-    #         'HOST': 'tiny.db.elephantsql.com',
-    #         'PORT': '5432'
-    #     },
-    # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bvieeszx',
-        'USER': 'bvieeszx',
-        'PASSWORD': '87sV977DrVkXDGLWhJP3ego37WeSZCHE',
-        'HOST': 'tiny.db.elephantsql.com',
-        'PORT': '5432',
-    }
-}
+# this works
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'bvieeszx',
+#         'USER': 'bvieeszx',
+#         'PASSWORD': '87sV977DrVkXDGLWhJP3ego37WeSZCHE',
+#         'HOST': 'tiny.db.elephantsql.com',
+#         'PORT': '5432',
+#     }
+# }
 
+# this works too
+DATABASES = {
+    'default': dj_database_url.parse('postgres://bvieeszx:87sV977DrVkXDGLWhJP3ego37WeSZCHE@tiny.db.elephantsql.com/bvieeszx', conn_max_age=600),
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
