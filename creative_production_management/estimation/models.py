@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.validators import RegexValidator
-from django.contrib.auth.models import AbstractBaseUser, UserManager
 from django.utils.translation import gettext_lazy as _
 
 class User(models.Model):
@@ -22,15 +21,17 @@ class User(models.Model):
   is_active = models.BooleanField(_('active'), default=True)
   created_at = models.DateTimeField(auto_now_add=True)
 
-  objects = UserManager()
-
   USERNAME_FIELD = 'username'
   EMAIL_FIELD = 'email'
   REQUIRED_FIELDS = ['username']
 
 class CSO(User):
   """cso model"""
-  pass
+  password = models.CharField(
+    _('password'),
+    max_length=50,
+    validators=[RegexValidator(regex=r'^[a-zA-Z0-9]{8,}$')]
+  )
 
 class Designer(User):
   """designer model"""
