@@ -1,9 +1,11 @@
 {% extends '../base.html' %}
 
 {% block main %}
-  <div class="container text-center">
-    <h1> Creative Production Management System </h1>
-    <hr>
+  {% include 'includes/navbar.html' %}
+  <div class="container-fluid">
+    {% include 'includes/sidebar.html' %}
+    <div class="col py-3">
+      content
+    </div>
   </div>
-
 {% endblock main %}
