@@ -1,0 +1,6 @@
+pip install virtualenv
+virtualenv ENV
+source ENV/bin/activate
+pip install -r requirements.txt
+
+asgiref==3.4.1 Django==3.2.18 sqlparse==0.4.3 tzdata==2022.7 psycopg2-binary==2.9.5 dj-database-url==1.2.0
