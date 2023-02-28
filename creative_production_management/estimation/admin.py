@@ -7,5 +7,6 @@ admin.site.register(Designer)
 admin.site.register(Task)
 admin.site.register(Vendor)
 admin.site.register(Service)
-admin.site.register(VendorService)
+admin.site.register(Tag)
+admin.site.register(Estimation)
 
